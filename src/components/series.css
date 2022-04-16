@@ -1,9 +1,24 @@
 
 
 .series-container{
-	width: 400px;
-	height:100px;
+	width: 300px;
+	background-color: aqua;
 }
 .series-img{
-	width: 80%;
+	width: 100%;
 }
+
+
+#series-container{
+	/* width:80%; */
+	margin: auto 50px;
+	display: grid;
+	grid-template-columns: repeat(4, 24%);
+	grid-gap: 15px;
+	position: absolute;
+	top:60vh;
+  }
+
+  .detail{
+	  width:300px;
+  }

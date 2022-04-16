@@ -1,6 +1,6 @@
 
 
-import "./cart.css"
+import "./cart.css";
 export const Cart = ({text})=>{
   return (
   

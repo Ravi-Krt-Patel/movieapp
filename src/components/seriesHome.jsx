@@ -1,8 +1,10 @@
 /* eslint-disable jsx-a11y/alt-text */
-
-import { useState,useEffect } from "react"
+import { useState,useEffect,useContext } from "react";
+import {CartContext} from "../CardContext";
+import {Link} from "react-router-dom";
 import "./series.css";
 export const SeriesHome = ()=> {
+	const {provider} = useContext(CartContext);
 	const [item,setItem] = useState([])
 	useEffect(()=>{
 		getAlldata();
@@ -20,12 +22,21 @@ export const SeriesHome = ()=> {
 	}
 	return (<>
 	<h1>all data for series</h1>
+	<div id="series-container" >
 	{item.map((e)=>(
-		
-		<div className="series-container" >
-			<h3>{e.title}</h3>
+		<Link to = "/detail" >
+		 <div onClick={()=>{
+			 provider(e);
+		 }} className="series-container" >
+			
 			<img className="series-img" src={e.images["Poster Art"].url}/>
-		</div>
+			<h3>{e.title}</h3>
+		 </div>
+		</Link>
+		
+
 	))}
+	</div>
+	
 	</>)
 }
